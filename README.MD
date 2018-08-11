@@ -24,9 +24,12 @@
 
 <h2>Local Mode Testing using Mapr Spark</h2> 
 <p style="text-align:center;">
-
+<pre>
+<code style="background-color:powderblue;display:block;word-wrap=normal">
 cd /opt/mapr/spark/spark-*
 ./bin/spark-submit --class com.databricks.spark.sql.perf.tpcds.TPCDS_Standalone --master local[2] --driver-memory 4G ~/spark-sql-perf-assembly-0.5.0-SNAPSHOT.jar --dataset_location maprfs:/tmp/input --output_location maprfs:/tmp/results --scale_factor 1 
+</code>
+</pre>
 </p>
 
 Note: Adjust the local cores and driver-memory as appropriate for your server.  Adjust scale_factor as appropriate.  Scale factor of 1 equates to 1G scale
