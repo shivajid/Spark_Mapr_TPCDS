@@ -26,8 +26,8 @@
 <p style="text-align:center;">
 <pre>
 <code style="background-color:powderblue;display:block;word-wrap=normal">
-cd /opt/mapr/spark/spark-*
-./bin/spark-submit --class com.databricks.spark.sql.perf.tpcds.TPCDS_Standalone --master local[2] --driver-memory 4G ~/spark-sql-perf-assembly-0.5.0-SNAPSHOT.jar --dataset_location maprfs:/tmp/input --output_location maprfs:/tmp/results --scale_factor 1 
+$ cd /opt/mapr/spark/spark-*
+$ ./bin/spark-submit --class com.databricks.spark.sql.perf.tpcds.TPCDS_Standalone --master local[2] --driver-memory 4G ~/spark-sql-perf-assembly-0.5.0-SNAPSHOT.jar --dataset_location maprfs:/tmp/input --output_location maprfs:/tmp/results --scale_factor 1 
 </code>
 </pre>
 </p>
@@ -52,8 +52,8 @@ TPCDS results will be written to MapRFS in /tmp/results that are organized by ti
 
 <h3>Yarn Mode Testing using Mapr Spark 2.X</h3>
 <pre>
-cd /opt/mapr/spark/spark-2*
-./bin/spark-submit --class com.databricks.spark.sql.perf.tpcds.TPCDS_Standalone --master yarn --deploy-mode cluster --driver-memory 4G --executor-memory 64G --executor-cores 8 --num-executors 10 ~/spark-sql-perf-assembly-0.5.0-SNAPSHOT.jar --dataset_location maprfs:/tmp/input-yarn --output_location maprfs:/tmp/results-yarn --scale_factor 1000
+$ cd /opt/mapr/spark/spark-2*
+$ ./bin/spark-submit --class com.databricks.spark.sql.perf.tpcds.TPCDS_Standalone --master yarn --deploy-mode cluster --driver-memory 4G --executor-memory 64G --executor-cores 8 --num-executors 10 ~/spark-sql-perf-assembly-0.5.0-SNAPSHOT.jar --dataset_location maprfs:/tmp/input-yarn --output_location maprfs:/tmp/results-yarn --scale_factor 1000
 </pre>
 
 
