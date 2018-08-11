@@ -32,8 +32,8 @@ cd /opt/mapr/spark/spark-*
 </pre>
 </p>
 
-Note: Adjust the local cores and driver-memory as appropriate for your server.  Adjust scale_factor as appropriate.  Scale factor of 1 equates to 1G scale
-
+<p style="font-size:8px;">Note: Adjust the local cores and driver-memory as appropriate for your server.  Adjust scale_factor as appropriate.  Scale factor of 1 equates to 1G scale
+</p>
 
 <h4>Look at results</h4>
 TPCDS results will be written to MapRFS in /tmp/results that are organized by timestamp. 
