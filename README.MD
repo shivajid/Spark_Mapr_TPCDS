@@ -32,7 +32,10 @@ cd /opt/mapr/spark/spark-*
 </pre>
 </p>
 
-<p style="font-size:8px;">Note: Adjust the local cores and driver-memory as appropriate for your server.  Adjust scale_factor as appropriate.  Scale factor of 1 equates to 1G scale
+<p>
+	<pre>
+Note: Adjust the local cores and driver-memory as appropriate for your server.  Adjust scale_factor as appropriate.  Scale factor of 1 equates to 1G scale
+	</pre>
 </p>
 
 <h4>Look at results</h4>
@@ -40,24 +43,30 @@ TPCDS results will be written to MapRFS in /tmp/results that are organized by ti
 
 
 <h2>Distributed/ YARN Mode Testing</h2>
-Log into the node where you uploaded spark-sql-perf-assembly-0.5.0-SNAPSHOT.jar
-Create input and results directory
-hadoop fs -mkdir /tmp/input-yarn
-hadoop fs -mkdir /tmp/results-yarn
+<ul>
+<ol/>Log into the node where you uploaded spark-sql-perf-assembly-0.5.0-SNAPSHOT.jar
+<ol/>Create input and results directory
+<ol/>hadoop fs -mkdir /tmp/input-yarn
+<ol/>hadoop fs -mkdir /tmp/results-yarn
+</ul>
 
-Yarn Mode Testing using Mapr Spark 2.X
+<h3>Yarn Mode Testing using Mapr Spark 2.X</h3>
+<pre>
 cd /opt/mapr/spark/spark-2*
 ./bin/spark-submit --class com.databricks.spark.sql.perf.tpcds.TPCDS_Standalone --master yarn --deploy-mode cluster --driver-memory 4G --executor-memory 64G --executor-cores 8 --num-executors 10 ~/spark-sql-perf-assembly-0.5.0-SNAPSHOT.jar --dataset_location maprfs:/tmp/input-yarn --output_location maprfs:/tmp/results-yarn --scale_factor 1000
-
+</pre>
+<pre>
 Note: 
-Adjust driver-memory, executor-memory,executor-cores, num-executors and scale_factor as appropriate.  
-On a cluster with 10 worker nodes with each node having 120GB YARN Memory and 16 cores, the following setting is appropriate
-executor-memory 60G (this should not exceed 64GB)
-Executor-cores 8 (since we will have 2 executors per node, given our memory settings)
-Num-executors 20 (since the cluster has 10 worker nodes and we have 2 executors per node)
+<ul>
+<li/>Adjust driver-memory, executor-memory,executor-cores, num-executors and scale_factor as appropriate.  
+<li/>On a cluster with 10 worker nodes with each node having 120GB YARN Memory and 16 cores, the following setting is appropriate
+<li/>executor-memory 60G (this should not exceed 64GB)
+<li/>Executor-cores 8 (since we will have 2 executors per node, given our memory settings)
+<li/>Num-executors 20 (since the cluster has 10 worker nodes and we have 2 executors per node)
+</ul>
+</pre>
 
-
-Look at results
+<h3>Look at results</h3>
 TPCDS results will be written to MapRFS in /tmp/results that are organized by timestamp. 
 
 	
