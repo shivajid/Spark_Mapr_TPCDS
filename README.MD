@@ -13,26 +13,27 @@
 </ul>
 
 <h2>Install MapR</h2>
+<p>
 <ul>
 <li/>Copy Benchmark suite to ONE of the nodes in the cluster
 <li/>Copy spark-sql-perf-assembly-0.5.0-SNAPSHOT.jar to /home/mapr/spark-sql-perf-assembly-0.5.0-SNAPSHOT.jar 
 </ul>
+</p>
+<h2>Local Mode Testing</h2>
+<p>Log into the node where you uploaded spark-sql-perf-assembly-0.5.0-SNAPSHOT.jar as user mapr</p>
 
-Local Mode Testing
-Log into the node where you uploaded spark-sql-perf-assembly-0.5.0-SNAPSHOT.jar as user mapr
-
-Local Mode Testing using Mapr Spark 
-cd /opt/mapr/spark/spark-*
-./bin/spark-submit --class com.databricks.spark.sql.perf.tpcds.TPCDS_Standalone --master local[2] --driver-memory 4G ~/spark-sql-perf-assembly-0.5.0-SNAPSHOT.jar --dataset_location maprfs:/tmp/input --output_location maprfs:/tmp/results --scale_factor 1
+<h2>Local Mode Testing using Mapr Spark</h2> 
+<p><code>cd /opt/mapr/spark/spark-*
+./bin/spark-submit --class com.databricks.spark.sql.perf.tpcds.TPCDS_Standalone --master local[2] --driver-memory 4G ~/spark-sql-perf-assembly-0.5.0-SNAPSHOT.jar --dataset_location maprfs:/tmp/input --output_location maprfs:/tmp/results --scale_factor 1 </code></p>
 
 Note: Adjust the local cores and driver-memory as appropriate for your server.  Adjust scale_factor as appropriate.  Scale factor of 1 equates to 1G scale
 
 
-Look at results
+<h4>Look at results</h4>
 TPCDS results will be written to MapRFS in /tmp/results that are organized by timestamp. 
 
 
-Distributed/ YARN Mode Testing
+<h2>Distributed/ YARN Mode Testing<h2>
 Log into the node where you uploaded spark-sql-perf-assembly-0.5.0-SNAPSHOT.jar
 Create input and results directory
 hadoop fs -mkdir /tmp/input-yarn
