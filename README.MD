@@ -8,7 +8,7 @@
 <h2>Steps for download the Package</h2>
 <ul>
 <li>Download spark-sql-perf-assembly-0.5.0-SNAPSHOT.jar</li>
-<li>https://drive.google.com/open?id=1yjAKSg8rzgrK9GI_hRKjcCq7B7FP4OK1</li>
+	<li><a href="spark-sql-perf-assembly-0.5.0-SNAPSHOT.jar">Download Spark Assembly</a></li>
 <li>This jar packages the logic to create and execute the tpc-ds benchmark</li>
 </ul>
 
